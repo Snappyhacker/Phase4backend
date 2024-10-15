@@ -1,6 +1,7 @@
 from flask import current_app
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
+from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -39,6 +40,9 @@ class Booking(db.Model):
     check_out_date = db.Column(db.Date, nullable=False)
     total_price = db.Column(db.Float, nullable=False)
 
+    # Relationships
+    payments = db.relationship('Payment', backref='booking', lazy=True)
+
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -51,3 +55,12 @@ class Deal(db.Model):
     hotel_id = db.Column(db.Integer, db.ForeignKey('hotel.id'), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     expiration_date = db.Column(db.Date, nullable=False)
+
+# New Payment Model
+class Payment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    booking_id = db.Column(db.Integer, db.ForeignKey('booking.id'), nullable=False)
+    amount = db.Column(db.Float, nullable=False)
+    payment_status = db.Column(db.String(50), nullable=False)  # e.g. 'Paid', 'Pending', 'Failed'
+    payment_method = db.Column(db.String(50), nullable=False)  # e.g. 'Credit Card', 'PayPal'
+    payment_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
