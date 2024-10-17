@@ -47,5 +47,6 @@ from app import create_app
 
 if __name__ == '__main__':
     app = create_app()
-    app.run()
-    # app.run(host='localhost', debug=True, port=5001)
+    app.run(host='localhost', debug=True, port=5001)
+else:
+    gunicorn_app = create_app()
