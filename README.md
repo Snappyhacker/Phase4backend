@@ -6,9 +6,6 @@ The room Booking API is a Flask-based backend application designed to manage roo
 ## Directory Structure
 project_root/ ├── app/ # Core application code and modules ├── instance/ # SQLite database file │ └── app.db ├── migrations/ # Database migration scripts ├── swift_booking/ # (Add description if applicable) ├── venv/ # Virtual environment for dependencies ├── .env # Environment variables for configuration ├── .gitignore # Files and directories to ignore in Git ├── config.py # Application configuration settings ├── makemigrations.sh # Script for managing migrations ├── requirements.txt # Python dependencies ├── run.py # Entry point for the application ├── seed.py # Script to populate the database with initial data └── README.md # Project documentation
 
-markdown
-Copy code
-
 ## Key Features
 
 - **User Management**: Handle user registration, authentication, and profile management.
