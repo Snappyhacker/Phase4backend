@@ -22,11 +22,14 @@ def create_app():
     from app.routes.bookings import bookings_bp
     from app.routes.reviews import reviews_bp
     from app.routes.deals import deals_bp
+    from app.payments.routes import payments_bp
 
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(hotels_bp, url_prefix='/hotels')
     app.register_blueprint(bookings_bp, url_prefix='/bookings')
     app.register_blueprint(reviews_bp, url_prefix='/reviews')
     app.register_blueprint(deals_bp, url_prefix='/deals')
+    app.register_blueprint(payments_bp, url_prefix='/payments')
 
     return app  # Return the created app instance
+
