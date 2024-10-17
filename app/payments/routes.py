@@ -5,6 +5,7 @@ from app import db
 
 payments_bp = Blueprint("payments", __name__)
 
+# You share this i will find you
 PAYSTACK_SECRET_KEY = "sk_live_ae8eed68829a37618a7dc3af22e6be9ba1fc713f"
 PAYSTACK_API_URL = "https://api.paystack.co"
 
