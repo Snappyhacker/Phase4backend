@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
+from flask_swagger_ui import get_swaggerui_blueprint
 
 # Initialize the database
 db = SQLAlchemy()
@@ -23,6 +24,19 @@ def create_app():
     from app.routes.reviews import reviews_bp
     from app.routes.deals import deals_bp
     from app.payments.routes import payments_bp
+
+    SWAGGER_URL = '/api-docs'
+    # API_URL = 'templates/swagger.json'
+    API_URL = '/static/openapi.json'
+    SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+        SWAGGER_URL,
+        API_URL,
+        config={
+            'app_name': "Swifty Hotel"
+        }
+    )
+
+    app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(hotels_bp, url_prefix='/hotels')
