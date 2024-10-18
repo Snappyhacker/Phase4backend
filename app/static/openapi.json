@@ -120,6 +120,60 @@
           }
         }
       }
+    },
+    "/paystack/webhook": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Transaction Status",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/paystack/verify/<reference>": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Verify Payment",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/paystack/initialize": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Initialize Payments",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
     }
   }
 }
