@@ -5,3 +5,5 @@
 5. Click on the file option on the top bar and click export to JSON
 5. Rename file and to openapi.json and replace what is in this static/ folder
 6. You can access swagger at /api-docs
+
+Currently the swagger docs are hosted at https://swifty-hotel-backend.onrender.com/api-docs/
